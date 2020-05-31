@@ -10,7 +10,7 @@ import sun.rmi.runtime.Log;
 import java.util.Random;
 
 @Component
-@Service(group = "zhxt",version="0.0.1",timeout = 20000,retries = 3,loadbalance = "roundrobin",actives = 4)
+@Service(group = "zhxt",timeout = 20000,retries = 3,loadbalance = "roundrobin",actives = 2)
 public class ZhxtServiceImpl implements ZhxtService {
     private static final Logger LOG = LoggerFactory.getLogger(ZhxtServiceImpl.class);
     @Override
@@ -19,7 +19,7 @@ public class ZhxtServiceImpl implements ZhxtService {
         int money = random.nextInt(9) * 1000;
         LOG.info(name+"："+money);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
